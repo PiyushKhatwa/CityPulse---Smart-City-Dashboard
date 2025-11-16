@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CityPulse - Smart City Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo">CityPulse</h1>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Dashboard</a></li>
+                <li><a href="alerts.html">Alerts</a></li>
+                <li><a href="map.html">City Map</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="dashboard-container">
+        <section class="hero-section">
+            <h2>Welcome to Your City</h2>
+            <p id="current-datetime"></p>
+        </section>
+
+        <section class="metrics-grid">
+            <div class="metric-card temperature-card">
+                <div class="metric-icon">🌡️</div>
+                <div class="metric-content">
+                    <h3>Temperature</h3>
+                    <p class="metric-value" id="temperature">--°C</p>
+                    <p class="metric-label">Current Weather</p>
+                </div>
+            </div>
+
+            <div class="metric-card aqi-card">
+                <div class="metric-icon">🌫️</div>
+                <div class="metric-content">
+                    <h3>Air Quality</h3>
+                    <p class="metric-value" id="aqi">--</p>
+                    <p class="metric-label" id="aqi-status">Loading...</p>
+                </div>
+                <div class="aqi-bar">
+                    <div class="aqi-fill" id="aqi-fill"></div>
+                </div>
+            </div>
+
+            <div class="metric-card traffic-card">
+                <div class="metric-icon">🚦</div>
+                <div class="metric-content">
+                    <h3>Traffic Density</h3>
+                    <p class="metric-value" id="traffic">--</p>
+                    <p class="metric-label" id="traffic-status">Loading...</p>
+                </div>
+                <div class="traffic-bars">
+                    <div class="traffic-bar" id="bar1"></div>
+                    <div class="traffic-bar" id="bar2"></div>
+                    <div class="traffic-bar" id="bar3"></div>
+                    <div class="traffic-bar" id="bar4"></div>
+                    <div class="traffic-bar" id="bar5"></div>
+                </div>
+            </div>
+
+            <div class="metric-card population-card">
+                <div class="metric-icon">👥</div>
+                <div class="metric-content">
+                    <h3>Population</h3>
+                    <p class="metric-value" id="population">--</p>
+                    <p class="metric-label">City Residents</p>
+                </div>
+            </div>
+
+            <div class="metric-card energy-card">
+                <div class="metric-icon">⚡</div>
+                <div class="metric-content">
+                    <h3>Energy Usage</h3>
+                    <p class="metric-value" id="energy">--</p>
+                    <p class="metric-label" id="energy-status">Today's Consumption</p>
+                </div>
+                <div class="energy-meter">
+                    <div class="energy-fill" id="energy-fill"></div>
+                </div>
+            </div>
+
+            <div class="metric-card emergency-card">
+                <div class="metric-icon">🚨</div>
+                <div class="metric-content">
+                    <h3>Emergency Calls</h3>
+                    <p class="metric-value" id="emergency">--</p>
+                    <p class="metric-label">Last 24 Hours</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="charts-section">
+            <div class="chart-card">
+                <h3>Weekly Weather Trend</h3>
+                <div class="chart-container">
+                    <canvas id="weather-chart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <h3>City Statistics</h3>
+                <div class="stats-list">
+                    <div class="stat-item">
+                        <span class="stat-label">Public Transport Users</span>
+                        <span class="stat-value">1.2M/day</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Parks & Recreation</span>
+                        <span class="stat-value">245 Locations</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Healthcare Facilities</span>
+                        <span class="stat-value">89 Centers</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Educational Institutions</span>
+                        <span class="stat-value">327 Schools</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

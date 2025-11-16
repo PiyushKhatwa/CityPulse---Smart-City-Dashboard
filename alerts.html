@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Alerts - CityPulse</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo">CityPulse</h1>
+            <ul class="nav-menu">
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="alerts.html" class="active">Alerts</a></li>
+                <li><a href="map.html">City Map</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="alerts-container">
+        <section class="alerts-header">
+            <h2>City Alerts & News</h2>
+            <p>Stay informed about important city updates</p>
+        </section>
+
+        <section class="filters-section">
+            <button class="filter-btn active" data-category="all">All</button>
+            <button class="filter-btn" data-category="traffic">🚗 Traffic</button>
+            <button class="filter-btn" data-category="health">🏥 Health</button>
+            <button class="filter-btn" data-category="weather">🌤️ Weather</button>
+            <button class="filter-btn" data-category="public">📢 Public Notice</button>
+        </section>
+
+        <section class="sort-section">
+            <label for="sort-select">Sort by:</label>
+            <select id="sort-select">
+                <option value="date-desc">Newest First</option>
+                <option value="date-asc">Oldest First</option>
+                <option value="priority">Priority</option>
+            </select>
+        </section>
+
+        <section class="alerts-grid" id="alerts-grid">
+        </section>
+    </main>
+
+    <script src="js/alerts.js"></script>
+</body>
+</html>
