@@ -25,25 +25,132 @@
             <p>Stay informed about important city updates</p>
         </section>
 
-        <section class="filters-section">
-            <button class="filter-btn active" data-category="all">All</button>
-            <button class="filter-btn" data-category="traffic">🚗 Traffic</button>
-            <button class="filter-btn" data-category="health">🏥 Health</button>
-            <button class="filter-btn" data-category="weather">🌤️ Weather</button>
-            <button class="filter-btn" data-category="public">📢 Public Notice</button>
-        </section>
+        <div class="alerts-layout">
+            <!-- Left Sidebar -->
+            <aside class="alerts-sidebar">
+                <div class="sidebar-section search-section">
+                    <h3 class="sidebar-title">Search</h3>
+                    <div class="search-box">
+                        <input type="text" id="search-input" placeholder="Search alerts...">
+                        <span class="search-icon">🔍</span>
+                    </div>
+                </div>
 
-        <section class="sort-section">
-            <label for="sort-select">Sort by:</label>
-            <select id="sort-select">
-                <option value="date-desc">Newest First</option>
-                <option value="date-asc">Oldest First</option>
-                <option value="priority">Priority</option>
-            </select>
-        </section>
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Categories</h3>
+                    <div class="filter-group">
+                        <button class="sidebar-filter-btn active" data-category="all">
+                            <span class="filter-count" data-count="all">8</span>
+                            <span class="filter-text">All Alerts</span>
+                        </button>
+                        <button class="sidebar-filter-btn" data-category="traffic">
+                            <span class="legend-dot traffic-dot"></span>
+                            <span class="filter-text">Traffic</span>
+                            <span class="filter-count" data-count="traffic">2</span>
+                        </button>
+                        <button class="sidebar-filter-btn" data-category="health">
+                            <span class="legend-dot health-dot"></span>
+                            <span class="filter-text">Health</span>
+                            <span class="filter-count" data-count="health">2</span>
+                        </button>
+                        <button class="sidebar-filter-btn" data-category="weather">
+                            <span class="legend-dot weather-dot"></span>
+                            <span class="filter-text">Weather</span>
+                            <span class="filter-count" data-count="weather">2</span>
+                        </button>
+                        <button class="sidebar-filter-btn" data-category="public">
+                            <span class="legend-dot public-dot"></span>
+                            <span class="filter-text">Public Notice</span>
+                            <span class="filter-count" data-count="public">2</span>
+                        </button>
+                    </div>
+                </div>
 
-        <section class="alerts-grid" id="alerts-grid">
-        </section>
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Priority Level</h3>
+                    <div class="priority-filters">
+                        <label class="priority-checkbox">
+                            <input type="checkbox" value="high" checked>
+                            <span class="checkbox-custom"></span>
+                            <span class="priority-indicator">
+                                <span class="priority-symbol high-symbol">▲▲▲</span>
+                                <span class="priority-text">Critical</span>
+                            </span>
+                        </label>
+                        <label class="priority-checkbox">
+                            <input type="checkbox" value="medium" checked>
+                            <span class="checkbox-custom"></span>
+                            <span class="priority-indicator">
+                                <span class="priority-symbol medium-symbol">▲▲</span>
+                                <span class="priority-text">Important</span>
+                            </span>
+                        </label>
+                        <label class="priority-checkbox">
+                            <input type="checkbox" value="low" checked>
+                            <span class="checkbox-custom"></span>
+                            <span class="priority-indicator">
+                                <span class="priority-symbol low-symbol">▲</span>
+                                <span class="priority-text">Standard</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <button class="clear-filters-btn" id="clear-filters">
+                        Clear All Filters
+                    </button>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <div class="alerts-main-content">
+                <div class="alerts-toolbar">
+                    <div class="alerts-stats">
+                        <span class="stat-badge">
+                            <span class="stat-number" id="showing-count">8</span>
+                            <span class="stat-label">Showing</span>
+                        </span>
+                        <span class="stat-separator">of</span>
+                        <span class="stat-badge">
+                            <span class="stat-number">8</span>
+                            <span class="stat-label">Total</span>
+                        </span>
+                    </div>
+
+                    <div class="alerts-controls">
+                        <div class="view-toggle">
+                            <button class="view-btn active" data-view="grid" title="Grid View">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                    <rect x="2" y="2" width="7" height="7" rx="1"/>
+                                    <rect x="11" y="2" width="7" height="7" rx="1"/>
+                                    <rect x="2" y="11" width="7" height="7" rx="1"/>
+                                    <rect x="11" y="11" width="7" height="7" rx="1"/>
+                                </svg>
+                            </button>
+                            <button class="view-btn" data-view="list" title="List View">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                    <rect x="2" y="3" width="16" height="3" rx="1"/>
+                                    <rect x="2" y="8" width="16" height="3" rx="1"/>
+                                    <rect x="2" y="13" width="16" height="3" rx="1"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <select id="sort-select" class="sort-dropdown">
+                            <option value="date-desc">Newest First</option>
+                            <option value="date-asc">Oldest First</option>
+                            <option value="priority">Priority</option>
+                            <option value="views">Most Viewed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="active-filters" id="active-filters"></div>
+
+                <section class="alerts-grid grid-view" id="alerts-grid"></section>
+            </div>
+        </div>
     </main>
 
     <script src="js/alerts.js"></script>
